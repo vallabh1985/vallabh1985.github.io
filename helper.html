@@ -111,7 +111,7 @@
             if (secretKey.length < 16) {
                     secretKey = secretKey + randomstr.substring(0, 16 - secretKey.length)
             }
-            
+            console.log(secretKey);
             key = CryptoJS.enc.Utf8.parse(secretKey);
             iv = CryptoJS.enc.Utf8.parse(secretKey.substring(0, 16));
         }
