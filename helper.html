@@ -78,17 +78,13 @@
 
     <script>
         const randomstr = 'H#8@p*2!8@6$2V#7'
-        let secretKey = $.trim($("#secretKey").val());
-        if (secretKey.length < 16) {
-                secretKey = secretKey + randomstr.substring(0, 16 - secretKey.length)
-        }
-
-        let key = CryptoJS.enc.Utf8.parse(secretKey);
-        let iv = CryptoJS.enc.Utf8.parse(secretKey.substring(0, 16));
         let today = new Date().toISOString().split('T')[0];
-        
-
+        let secretKey = '';
+        let key = '';
+        let iv = '';
+     
         $(document).on('click', '#submit1', function () {   
+            setVariable();
             let msg = $("#message").val();
 
             if ($('.radioType:checked').val() == '1') { //Encrypt
@@ -101,15 +97,24 @@
 
         })
 
-        $('#upload_file').on('change', function () {
-            console.log($('.radioType:checked').val());
-            console.log("ok");
+        $(document).on('change', '#upload_file', function () {  
+            setVariable();
             if ($('.radioType:checked').val() == '1') { //Encrypt
                 encrypt(this)
             } else if ($('.radioType:checked').val() == '2') { //Decrypt
                 decrypt(this)
             }
         });
+
+        function setVariable(){
+            secretKey = $.trim($("#secretKey").val());
+            if (secretKey.length < 16) {
+                    secretKey = secretKey + randomstr.substring(0, 16 - secretKey.length)
+            }
+            
+            key = CryptoJS.enc.Utf8.parse(secretKey);
+            iv = CryptoJS.enc.Utf8.parse(secretKey.substring(0, 16));
+        }
 
         function convertWordArrayToUint8Array(wordArray) {
             var arrayOfWords = wordArray.hasOwnProperty("words") ? wordArray.words : [];
@@ -151,11 +156,7 @@
             var file = input.files[0];
             var reader = new FileReader();
             reader.onload = () => {
-                //console.log("ok")
-                //console.log(secretKey)
-                //var key = "1234567887654321";
-                //console.log(key)
-
+               
                 var decrypted = CryptoJS.AES.decrypt(reader.result, key, { iv: iv });               
                 var typedArray = convertWordArrayToUint8Array(decrypted);               
 
