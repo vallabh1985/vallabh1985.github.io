@@ -1,0 +1,270 @@
+<!--
+    Name: Snow Man
+    Written By : Vallabh Vyas
+    Version : 1.0
+    Date : 06/12/2021
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Snowman</title>
+    <style>
+        body {
+            background-color: #87CEFA;
+        }
+
+        .main {
+            height: 550px;
+            width: 350px;
+            bottom: -5px;
+        }
+
+        .pr {
+            position: relative;
+        }
+
+        .head {
+            height: 120px;
+            width: 120px;
+            top: 100px;
+            left: 100px;
+        }
+
+        .hat {
+            background-color: #000;
+            height: 10px;
+            width: 120px;
+            top: 10px;
+        }
+
+        .htop {
+            background-color: #000;
+            width: 80px;
+            border-bottom: 45px solid #000;
+            bottom: 40px;
+            left: 20px;
+        }
+
+        .eye1,
+        .eye2 {
+            border-radius: 50%;
+            background-color: #000;
+            height: 20px;
+            width: 20px;
+        }
+
+        .eye1 {
+            top: 30px;
+            left: 35px;
+        }
+
+        .eye2 {
+            top: 10px;
+            left: 75px;
+        }
+
+        .nose {
+            top: 10px;
+            left: 75px;
+            border-top: 60px solid #FF4500;
+            border-left: 9px solid transparent;
+            border-right: 9px solid transparent;
+            width: 0;
+            transform: rotate(-45deg);
+        }
+
+        .tummy {
+            height: 250px;
+            width: 250px;
+            background-color: #fff;
+            top: 95px;
+            left: 40px;
+            border-radius: 50%;
+        }
+
+        .button1,
+        .button2,
+        .button3,
+        .button4 {
+            height: 15px;
+            width: 20px;
+            background-color: #000;
+            border-radius: 50%;
+            margin-bottom: 25px;
+            left: 110px;
+            top: 30px;
+        }
+
+        .stick1 {
+            background-color: #000;
+            width: 120px;
+            height: 6px;
+            bottom: 100px;
+            transform: rotate(35deg);
+            right: 70px;
+        }
+
+        .baby_stick1_1 {
+            background-color: #000;
+            width: 30px;
+            height: 5px;
+            bottom: 9px;
+            left: 5px;
+            transform: rotate(30deg);
+        }
+
+        .baby_stick1_2 {
+            background-color: #000;
+            width: 30px;
+            height: 5px;
+            transform: rotate(150deg);
+            left: 8px;
+        }
+
+        .stick2 {
+            background-color: #000;
+            width: 120px;
+            height: 6px;
+            bottom: 120px;
+            transform: rotate(125deg);
+            left: 198px;
+        }
+
+        .baby_stick2_1 {
+            background-color: #000;
+            width: 30px;
+            height: 5px;
+            bottom: 9px;
+            left: 5px;
+            transform: rotate(30deg);
+        }
+
+        .baby_stick2_2 {
+            background-color: #000;
+            width: 30px;
+            height: 5px;
+            transform: rotate(150deg);
+            left: 8px;
+        }
+
+        .muffler {
+            width: 50px;
+            border-bottom: 103px solid #ff0000;
+            border-right: 10px solid transparent;
+            border-left: 10px solid transparent;
+            left: 139px;
+            bottom: 267px;
+            transform: rotate(-10deg);
+        }
+
+        .fold_1 {
+            background-color: #ff0000;
+            height: 45px;
+            width: 188px;
+            right: 119px;
+            /* bottom: 27px; */
+            top: 91px;
+            transform: rotate(10deg);
+            border-radius: 16px;
+        }
+
+        .fold_2 {
+            width: 50px;
+            border-bottom: 95px solid #ff0000;
+            border-right: 10px solid transparent;
+            border-left: 10px solid transparent;
+            /* left: 151px; */
+            bottom: -85px;
+        }
+
+        .surface {
+            background-color: #fff !important;
+            /* height: 214px; */
+            position: absolute;
+            width: 120%;
+            bottom: 0;
+            left: -31px;
+            /* right: 38px; */
+            transform: rotate(3deg);
+            border-bottom: 207px solid #fff;
+        }
+
+        .surface-inner {
+            width: 110%;
+            background-color: #fff;
+            height: 157px;
+            position: absolute;
+            bottom: -71px;
+        }
+
+        @media only screen and (min-device-width : 481px) and (max-device-width : 768px) {
+            .main {
+                bottom: -30%;
+            }
+        }
+
+        @media only screen and (min-device-width : 769px) and (max-device-width : 1024px) {
+            .main {
+                bottom: -45%;
+            }
+        }
+
+        @media only screen and (min-device-width : 1025px) and (max-device-width : 1200px) {
+            .main {
+                bottom: -40%;
+            }
+        }
+
+        @media only screen and (min-width : 1201px) {
+            .main {
+                bottom: -40%;
+            }
+        }
+    </style>
+</head>
+
+<body class="m-0 p-0">
+    <div class="main position-absolute m-auto top-0 start-0 end-0">
+        <div class="snowman pr">
+            <div class="head bg-light rounded-circle pr">
+                <div class="hat pr">
+                    <div class="htop pr"></div>
+                </div>
+                <div class="eye1 pr"></div>
+                <div class="eye2 pr"></div>
+                <div class="nose pr"></div>
+
+            </div>
+            <div class="pr tummy">
+                <div class="pr sbtn">
+                    <div class="pr button1"></div>
+                    <div class="pr button2"></div>
+                    <div class="pr button3"></div>
+                    <div class="pr button3"></div>
+                </div>
+                <div class="pr stick1">
+                    <div class="pr baby_stick1_1"></div>
+                    <div class="pr baby_stick1_2"></div>
+                </div>
+                <div class="pr stick2">
+                    <div class="pr baby_stick2_1"></div>
+                    <div class="pr baby_stick2_2"></div>
+                </div>
+                <div class="pr muffler">
+                    <div class="pr fold_1"></div>
+                    <div class="pr fold_2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="surface"></div>
+    <div class="surface-inner"></div>
+</body>
+
+</html>
